@@ -1,0 +1,11 @@
+<!--this template is used to create as well as update an order.-->
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="Submit">
+</form>    
+{% endblock %}
