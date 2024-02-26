@@ -48,5 +48,5 @@ class Order(models.Model):
     status = models.CharField(max_length=200, null=True)
     date_created = models.DateField(auto_now_add=True)
 
-    #def __str__(self):
-     #   return self.name
+    def __str__(self):
+        return self.product.name
