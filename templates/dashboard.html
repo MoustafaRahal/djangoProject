@@ -19,7 +19,7 @@
                         <td><a href="{% url 'customer' i.id %}">{{ i.name }}</a></td>
                         <td>{{ i.phone }}</td>
                     </tr>
-                    {% endfor %} 
+                    {% endfor %}
                 </table>
             </div>
         </div>
@@ -29,7 +29,6 @@
             <h5>Last 5 Orders</h5>
             <hr>
             <div class="card card-body">
-                <a class="btn btn-primary btn-sm btn-block" href=" {% url 'create_order' %}">Create Order</a>
                 <table class="table table-sm">
                     <tr>
                         <th>Product</th>
