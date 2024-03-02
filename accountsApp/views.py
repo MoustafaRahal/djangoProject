@@ -31,7 +31,8 @@ def products(request):
 def customer(request, pk):
     customer = Customer.objects.get(id=pk)
     orders = customer.order_set.all()
-    myFilter = OrderFilter()
+    myFilter = OrderFilter(request.GET, queryset=orders)
+    orders = myFilter.qs
     context = {'customer': customer, 'orders': orders, 'myFilter': myFilter}
     return render(request, '../templates/customer.html', context)
 
