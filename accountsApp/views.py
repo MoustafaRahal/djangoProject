@@ -5,6 +5,7 @@ from .forms import OrderForm, CreateUserForm
 from django.forms import inlineformset_factory
 from .filter import OrderFilter
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -14,6 +15,9 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, user + '\'s account created successfully!')
+            return redirect('login')
 
     context = {'form':form}
     return render(request, './register.html', context)
